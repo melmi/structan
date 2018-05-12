@@ -331,7 +331,7 @@ class solver_t
              << "ASCII" << std::endl
              << "DATASET UNSTRUCTURED_GRID" << std::endl;
 
-        file << "POINTS " << nnodes << std::endl;
+        file << "POINTS " << nnodes << " double" << std::endl;
         for (int i = 0; i < nnodes; ++i)
         {
             auto d = eqnos[i];
@@ -342,7 +342,7 @@ class solver_t
 
         file << "CELLS " << nelems << " " << 3 * nelems << std::endl;
         for (int i = 0; i < nelems; ++i)
-            file << "2 " << elements[i].j1 << " " << elements[2].j2 << std::endl;
+            file << "2 " << elements[i].j1 << " " << elements[i].j2 << std::endl;
 
         file << "CELL_TYPES " << nelems << std::endl;
         for (int i = 0; i < nelems; ++i)
